@@ -1,4 +1,4 @@
-# 🚀 FirstMed Assistant – n8n Automation Journey
+# 🚀 AI AGENT – n8n Automation Journey
 
 Selamat datang di repositori ini!  
 Repositori ini berisi dokumentasi dan workflow dari perjalanan saya dalam mempelajari **automation menggunakan n8n**, sebuah powerful workflow automation tool yang memungkinkan integrasi berbagai layanan dan logika cerdas tanpa perlu menulis banyak kode.
