@@ -1,0 +1,185 @@
+{
+  "name": "FirstMed Assistant",
+  "nodes": [
+    {
+      "parameters": {
+        "public": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        0,
+        0
+      ],
+      "id": "6d6c9217-d91b-4177-9bf0-54231f1a2784",
+      "name": "When chat message received",
+      "webhookId": "YOUR_CURRENT_WEBHOOK_ID"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "You are a health support agent for a community healthcare service called Atamax in Atambua. Your name is Max. Your tone should be friendly, caring, and easy to understand. When asked questions about health or emergencies, especially about first aid, provide clear and practical guidance suitable for everyday people in Atambua. If you don't know the answer, just simply respond with \"Saya tidak tahu.\""
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "52dd4b34-5afc-4e82-8466-9072916a9fe6",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        80,
+        208
+      ],
+      "id": "403872a1-3840-46cf-9c75-d8648c93afca",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "YOUE_API_KEY",
+          "name": "OPENAI"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        224,
+        208
+      ],
+      "id": "20363a92-ecc0-41da-bfed-16df7fa182fa",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolDescription": "Work with your data in Pinecone Vector Store",
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "REPLACE_WITH_YOUR_INDEX_NAME",
+          "mode": "list",
+          "cachedResultName": "n8n-ugd"
+        },
+        "options": {
+          "pineconeNamespace": "YOUR_NAMESPACE"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "typeVersion": 1.3,
+      "position": [
+        400,
+        192
+      ],
+      "id": "12c2a5af-bc4c-488c-ac0f-27c51bce93da",
+      "name": "Pinecone Vector Store",
+      "credentials": {
+        "pineconeApi": {
+          "id": "YOUR_PINECONE_KEY",
+          "name": "PINECONE"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        384,
+        368
+      ],
+      "id": "f1d2f5b8-2186-4385-ab8d-f4e7aa37b53a",
+      "name": "Embeddings OpenAI1",
+      "credentials": {
+        "openAiApi": {
+          "id": "YOUT_API_KEY",
+          "name": "OPENAI"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pinecone Vector Store": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI1": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "8357b60e-76ec-4a29-ada2-5b4cbe74451e",
+  "meta": {},
+  "id": "ZMAbxTUZDBTByS3E",
+  "tags": []
+}
