@@ -1,36 +1,30 @@
-# 🚀 AI AGENT – n8n Automation Journey
+# ⚙️ Belajar Automation dengan n8n
 
-Selamat datang di repositori ini!  
-Repositori ini berisi dokumentasi dan workflow dari perjalanan saya dalam mempelajari **automation menggunakan n8n**, sebuah powerful workflow automation tool yang memungkinkan integrasi berbagai layanan dan logika cerdas tanpa perlu menulis banyak kode.
+Repositori ini berisi kumpulan workflow, eksperimen, dan dokumentasi dari perjalanan saya dalam mempelajari **automation menggunakan n8n**.
 
-## 🎯 Tujuan
-Tujuan utama dari proyek ini adalah:
-- Membangun asisten digital untuk layanan kesehatan komunitas bernama **Atamax** di Atambua.
-- Mengeksplorasi integrasi API seperti **OpenAI** dan **Pinecone** untuk membangun chatbot berbasis AI dan pencarian berbasis vektor.
-- Memahami dan menerapkan konsep **memory**, **embedding**, dan **retrieval-augmented generation (RAG)** dalam konteks n8n.
+n8n adalah platform open-source yang memungkinkan kita membangun alur kerja otomatis dengan mudah, menghubungkan berbagai layanan, API, dan logika bisnis tanpa perlu menulis banyak kode.
+
+## 🎯 Tujuan Repositori
+- Menjelajahi fitur-fitur n8n seperti trigger, memory, AI agent, dan vector store.
+- Membangun workflow yang bisa digunakan untuk chatbot, integrasi API, dan automasi data.
+- Mendokumentasikan proses belajar dan berbagi solusi yang bisa direplikasi oleh orang lain.
 
 ## 📦 Isi Repositori
-- `FirstMed Assistant.json` – Workflow utama (versi aman, tanpa kredensial).
-- Dokumentasi setup dan konfigurasi node.
-- Catatan pembelajaran dan eksperimen selama proses pengembangan.
-
-## 🔐 Keamanan
-Semua kredensial API dan webhook telah dihapus atau diganti dengan placeholder.  
-Pastikan untuk:
-- Menyimpan API key di file `.env` atau menggunakan credential manager n8n.
-- Tidak meng-commit file `.env` atau data sensitif lainnya.
+- Workflow JSON (versi aman, tanpa kredensial).
+- Catatan pembelajaran dan konfigurasi node.
+- Contoh integrasi dengan layanan seperti OpenAI, Pinecone, dan webhook.
 
 ## 🧠 Teknologi yang Digunakan
 - [n8n](https://n8n.io/)
-- OpenAI GPT-4.1
-- Pinecone Vector Store
+- OpenAI (GPT-based models)
+- Pinecone (Vector Store)
 - LangChain Nodes for n8n
 
 ## 📚 Catatan Pribadi
-Saya membuat repositori ini sebagai bagian dari proses belajar yang terbuka dan bisa direplikasi.  
-Semoga bisa jadi referensi atau inspirasi bagi siapa pun yang ingin membangun automation cerdas dengan n8n.
+Repositori ini adalah bagian dari proses belajar saya yang terbuka dan bertahap.  
+Saya percaya bahwa dokumentasi dan berbagi eksperimen adalah cara terbaik untuk tumbuh bersama komunitas developer dan automation enthusiast.
 
 ---
 
 **Raka – Indonesia**  
-_Masih belajar, tapi selalu siap bereksperimen._
+_Masih belajar, tapi selalu penasaran._
